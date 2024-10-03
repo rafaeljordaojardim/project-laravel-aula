@@ -10,6 +10,12 @@ Route::get('/listar_usuarios', [UserController::class, 'listar']);
 
 Route::post('/criar_usuario', [UserController::class, 'criar']);
 
+Route::delete("/deletar_usuario/{id}", [UserController::class, 'deletar']);
+
+Route::get("/editar_usuario/{id}", [UserController::class, 'formEditarUsuario']);
+
+Route::patch("/editar_usuario/{id}", [UserController::class, 'editar']);
+
 // Rotas produto
 Route::get('/cadastro_produto', [ProdutoController::class, "formCriarProduto"]);
 
