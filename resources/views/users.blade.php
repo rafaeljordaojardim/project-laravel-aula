@@ -7,6 +7,9 @@
   <title>Document</title>
 </head>
 <body>
+  @if(count($users) == 0)
+    <h3>Sem usuários</h3>      
+  @else
   <table border="1">
     <tr>
       <th>Nome</th>
@@ -30,6 +33,8 @@
           </td>
         </tr>
     @endforeach
-  </table>
+  </table>       
+  @endif
+
 </body>
 </html>
