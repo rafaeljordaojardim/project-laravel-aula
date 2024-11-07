@@ -15,15 +15,6 @@ class PedidoController extends Controller
         return view("cadastro_pedido", ["users"=>$users, "produtos"=>$produtos]);
     }
 
-    public function listar() {
-        $pedidos = Pedido::all();
-        
-        // Criar uma view para mostrar os pedidos realizados
-
-        // {"id":1,"name":"Rafael da silva","cpf":"33333","email":"email@email.com","created_at":"2024-10-21T10:25:11.000000Z","updated_at":"2024-10-21T10:25:11.000000Z"}
-        // [{"id":1,"nome":"batata","descricao":"batata","preco":10,"created_at":"2024-10-21T10:25:26.000000Z","updated_at":"2024-10-21T10:25:26.000000Z","pivot":{"pedido_id":1,"produto_id":1,"quantidade":2,"created_at":"2024-10-21T10:25:34.000000Z"}}]
-    }
-
     public function cadastrar(Request $request)
     {
       $items = $request->input('items');
@@ -42,5 +33,12 @@ class PedidoController extends Controller
       }
 
       return redirect('/listar_usuarios');
+   }
+
+   public function listar() {
+    $pedidos = Pedido::all();
+
+    return view('listar_pedidos', ["pedidos" => $pedidos]);
+
    }
 }
